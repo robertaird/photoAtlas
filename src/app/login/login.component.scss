@@ -1,0 +1,23 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5vh;
+}
+
+#title {
+  color: $primary;
+  margin-top: 20vh;
+  margin-bottom: 0;
+}
+
+#navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+

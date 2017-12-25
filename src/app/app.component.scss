@@ -1,0 +1,9 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5vh;
+}

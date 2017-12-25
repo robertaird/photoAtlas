@@ -42,4 +42,5 @@ testem.log
 Thumbs.db
 
 # configuration files
-config/config.js
+config.js
+db.js
