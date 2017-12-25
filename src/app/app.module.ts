@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material';
 import { NguiMapModule } from '@ngui/map';
 
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { GOOGLE_MAPS_URI } from '../config/config';
     BrowserModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     NguiMapModule.forRoot({ apiUrl: GOOGLE_MAPS_URI }),
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
