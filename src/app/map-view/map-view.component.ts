@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import mapStyle from '../../config/map-style';
 
 @Component({
   selector: 'app-map-view',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map-view.component.scss']
 })
 export class MapViewComponent implements OnInit {
-
+  config = {
+    mapStyle,
+  }
   constructor() { }
 
   ngOnInit() {
