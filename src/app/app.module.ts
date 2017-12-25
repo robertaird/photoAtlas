@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -23,6 +24,7 @@ import { GOOGLE_MAPS_URI } from '../config/config';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
@@ -32,6 +34,7 @@ import { GOOGLE_MAPS_URI } from '../config/config';
       { path: 'map', component: MapViewComponent /* children: [] */ },
     ])
   ],
+  entryComponents: [MapViewComponent, PhotoModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

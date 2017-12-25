@@ -1,7 +1,7 @@
 <ngui-map center="0, 0" zoom="2" [styles]="config.mapStyle">
   <custom-marker position="Operation Spark">
     <div class="marker-container">
-      <img class="photo-icon" src="https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/c0.131.1080.1080/17266238_170114036834363_5827811553092567040_n.jpg">
+      <img class="photo-icon" (click)="openDialog()" src="https://scontent.cdninstagram.com/t51.2885-15/s150x150/e35/c0.131.1080.1080/17266238_170114036834363_5827811553092567040_n.jpg">
       <div class="arrow-down"></div>
     </div>
   </custom-marker>
