@@ -1,0 +1,13 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+
+.photo-lg {
+  height: 70vh;
+  width: auto;
+  border-radius: 1px;
+}
+
+.photo-modal-content {
+  max-height: 80vh;
+  padding: 2em;
+}

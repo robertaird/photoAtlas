@@ -31,7 +31,7 @@ import { GOOGLE_MAPS_URI } from '../config/config';
     NguiMapModule.forRoot({ apiUrl: GOOGLE_MAPS_URI }),
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
-      { path: 'map', component: MapViewComponent /* children: [] */ },
+      { path: 'main', component: MapViewComponent /* children: [] */ },
     ])
   ],
   entryComponents: [MapViewComponent, PhotoModalComponent],

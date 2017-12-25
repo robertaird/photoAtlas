@@ -7,7 +7,6 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./photo-modal.component.scss']
 })
 export class PhotoModalComponent implements OnInit {
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
