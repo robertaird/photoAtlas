@@ -46,7 +46,6 @@ app.get('/photos', (req, res) => {
   const { id } = req.query;
   Photos.find({ user_id: id })
     .then((found) => {
-      // console.log(found, 'inside /photos');
       res.send({ photos: found });
     });
 });
@@ -54,8 +53,6 @@ app.get('/photos', (req, res) => {
 app.get('/map', (req, res) => {
   request.auth(req.query, (user) => {
     const { id } = user[0];
-    // console.log(user[0].id, id);
-    // res.append('Current-User', user.id);
     res.redirect(`/main?id=${id}`);
   });
 });

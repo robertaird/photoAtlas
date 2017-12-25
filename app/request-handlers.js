@@ -4,14 +4,6 @@ const axios = require('axios');
 const User = require('./models/user.js');
 const Photos = require('./models/photo.js');
 
-/*
-curl -F 'client_id=CLIENT_ID' \
-    -F 'client_secret=CLIENT_SECRET' \
-    -F 'grant_type=authorization_code' \
-    -F 'redirect_uri=AUTHORIZATION_REDIRECT_URI' \
-    -F 'code=CODE' \
-*/
-
 const imageRequest = (accessToken) => {
   axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`)
   .then(({ data }) => {
@@ -26,8 +18,6 @@ const imageRequest = (accessToken) => {
     Photos.savePhotos(hasLocation);
   })
   .catch(err => console.error(err));;
-    // if (err) { console.error('Unable to fetch!', err); }
-    // const parsed = JSON.parse(bod);
 };
 
 const authRequest = ({ code }, callback) => {
@@ -53,8 +43,6 @@ const authRequest = ({ code }, callback) => {
         });
     })
     .catch(err => console.error('auth error', err));
-
-    // const { access_token, user } = JSON.parse(bod);
 };
 
 module.exports.auth = authRequest;
