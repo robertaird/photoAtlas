@@ -1,9 +1,10 @@
 @import '../sass/variables';
 @import '../sass/mixins';
 
-.button-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 5vh;
+#navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }

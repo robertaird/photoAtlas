@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { PhotoModalComponent } from './photo-modal/photo-modal.component';
 import { MapViewComponent } from './map-view/map-view.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-
+import { GOOGLE_MAPS_URI } from '../config/config';
 
 @NgModule({
   declarations: [
