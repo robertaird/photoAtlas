@@ -1,4 +1,5 @@
 const redirect = require('../config/redirect.js');
+const querystring = require('querystring');
 const axios = require('axios');
 const User = require('./models/user.js');
 const Photos = require('./models/photo.js');
@@ -12,16 +13,9 @@ curl -F 'client_id=CLIENT_ID' \
 */
 
 const imageRequest = (accessToken) => {
-  console.log(accessToken);
-  const options = {
-    url: `https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`,
-    method: 'GET',
-  };
-
-  axios.get(options, (err, res, bod) => {
-    if (err) { console.error('Unable to fetch!', err); }
-    const parsed = JSON.parse(bod);
-    const hasLocation = parsed.data
+  axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`)
+  .then(({ data }) => {
+    const hasLocation = data
       .filter(photo => !!photo.location)
       .map((photo) => {
         if (photo.caption === null) {
@@ -30,31 +24,22 @@ const imageRequest = (accessToken) => {
         return photo;
       });
     Photos.savePhotos(hasLocation);
-  });
+  })
+  .catch(err => console.error(err));;
+    // if (err) { console.error('Unable to fetch!', err); }
+    // const parsed = JSON.parse(bod);
 };
 
 const authRequest = ({ code }, callback) => {
-  const options = {
-    url: 'https://api.instagram.com/oauth/access_token',
-    crossDomain: true,
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    form: {
-      code,
-      client_id: process.env.INSTAGRAM_ID,
-      client_secret: process.env.INSTAGRAM_SECRET,
-      redirect_uri: redirect.url,
-      grant_type: 'authorization_code',
-    },
+  const data = {
+    code,
+    client_id: process.env.INSTAGRAM_ID,
+    client_secret: process.env.INSTAGRAM_SECRET,
+    redirect_uri: redirect.url,
+    grant_type: 'authorization_code',
   };
-
-  axios.post(options, (err, res, bod) => {
-    if (err) {
-      console.error('Something did not go as planned!', err);
-    } else {
-      const { access_token, user } = JSON.parse(bod);
+  axios.post('https://api.instagram.com/oauth/access_token', querystring.stringify(data))
+    .then(({ data: { access_token, user } }) => {
       imageRequest(access_token);
       User.find({ id: user.id })
         .then((found) => {
@@ -66,8 +51,10 @@ const authRequest = ({ code }, callback) => {
         .then((newUser) => {
           callback(newUser);
         });
-    }
-  });
+    })
+    .catch(err => console.error('auth error', err));
+
+    // const { access_token, user } = JSON.parse(bod);
 };
 
 module.exports.auth = authRequest;
