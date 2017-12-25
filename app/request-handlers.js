@@ -1,5 +1,5 @@
 const redirect = require('../config/redirect.js');
-const request = require('request');
+const axios = require('axios');
 const User = require('./models/user.js');
 const Photos = require('./models/photo.js');
 
@@ -18,7 +18,7 @@ const imageRequest = (accessToken) => {
     method: 'GET',
   };
 
-  request.get(options, (err, res, bod) => {
+  axios.get(options, (err, res, bod) => {
     if (err) { console.error('Unable to fetch!', err); }
     const parsed = JSON.parse(bod);
     const hasLocation = parsed.data
@@ -50,7 +50,7 @@ const authRequest = ({ code }, callback) => {
     },
   };
 
-  request.post(options, (err, res, bod) => {
+  axios.post(options, (err, res, bod) => {
     if (err) {
       console.error('Something did not go as planned!', err);
     } else {

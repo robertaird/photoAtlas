@@ -1,4 +1,7 @@
-# PhotoMap
+![alt text](./src/assets/logo.png "photoAtlas")
+# photoAtlas
+## What's this all for then? ##
+  > I really loved Instagram's built in map, which was removed about a year ago now. It was disappointing to see it go, and I personally would love to have it back. I thought it would be fun to build my own take on it.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
 

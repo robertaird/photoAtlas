@@ -10,6 +10,12 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  // res.header("Access-Control-Allow-Headers", "id_user, id, items, Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use(express.json());
 app.use(routes);
 app.use(express.static(`${__dirname}/public`));
