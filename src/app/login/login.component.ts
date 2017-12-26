@@ -9,12 +9,18 @@ import { INSTAGRAM_URI } from '../../config/config';
 export class LoginComponent implements OnInit {
   title = 'Welcome to';
   instagramUri = INSTAGRAM_URI;
+  demoUri = '/map?code=demo';
 
   constructor() { }
 
   loginInstagram() {
     window.location.href = this.instagramUri;
   }
+
+  demoMode() {
+    window.location.href = this.demoUri;
+  }
+
   ngOnInit() {
   }
 

@@ -7,12 +7,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material';
 import { NguiMapModule } from '@ngui/map';
 
+import { GOOGLE_MAPS_URI } from '../config/config';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PhotoModalComponent } from './photo-modal/photo-modal.component';
 import { MapViewComponent } from './map-view/map-view.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { GOOGLE_MAPS_URI } from '../config/config';
+import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GOOGLE_MAPS_URI } from '../config/config';
     LoginComponent,
     PhotoModalComponent,
     MapViewComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NavBarMainComponent
   ],
   imports: [
     BrowserModule,

@@ -46,5 +46,4 @@ config.js
 config.ts
 db.js
 .env
-test-data.js
-test-data
+test-data*

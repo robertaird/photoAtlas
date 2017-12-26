@@ -51,6 +51,9 @@ app.get('/photos', (req, res) => {
 });
 
 app.get('/map', (req, res) => {
+  if (req.query.code === 'demo') {
+    res.redirect('/main?id=demo')
+  }
   request.auth(req.query, (user) => {
     const { id } = user[0];
     res.redirect(`/main?id=${id}`);

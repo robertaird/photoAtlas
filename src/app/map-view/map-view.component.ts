@@ -18,7 +18,7 @@ export class MapViewComponent implements OnInit {
   openDialog() {
     this.dialog.open(PhotoModalComponent, {
       data: {
-        photoUrl: 'https://scontent-dft4-3.cdninstagram.com/t51.2885-15/e35/17266238_170114036834363_5827811553092567040_n.jpg',
+        photoUrl: '../../assets/test-data.jpg',
       },
     });
   }
