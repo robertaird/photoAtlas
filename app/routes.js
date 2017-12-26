@@ -3,6 +3,8 @@ const request = require('./request-handlers.js');
 const User = require('./models/user.js');
 const Photos = require('./models/photo.js');
 
+const testData = require('../config/test-data.js');
+
 const app = express();
 
 app.use(express.json());
@@ -44,10 +46,14 @@ app.get('/users', (req, res) => {
 
 app.get('/photos', (req, res) => {
   const { id } = req.query;
-  Photos.find({ user_id: id })
-    .then((found) => {
-      res.send({ photos: found });
-    });
+  if (id === 'demo') {
+    res.send({ photos: testData });
+  } else {
+    Photos.find({ user_id: id })
+      .then((found) => {
+        res.send({ photos: found });
+      });
+  }
 });
 
 app.get('/map', (req, res) => {
@@ -60,11 +66,11 @@ app.get('/map', (req, res) => {
   });
 });
 
-app.get('/main*', (req, res) => {
-  const { id } = req.query;
-  // console.log(id);
-  res.redirect(`/#!main?user=${id}`);
-});
+// app.get('/main*', (req, res) => {
+//   const { id } = req.query;
+//   // console.log(id);
+//   res.redirect(`/#!main?user=${id}`);
+// });
 
 
 module.exports = app;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoModalComponent } from '../photo-modal/photo-modal.component';
 import mapStyle from '../../config/map-style';
@@ -9,11 +10,13 @@ import mapStyle from '../../config/map-style';
   styleUrls: ['./map-view.component.scss']
 })
 export class MapViewComponent implements OnInit {
+  constructor(public dialog: MatDialog) {}
+
   config = {
     mapStyle,
   };
 
-  constructor(public dialog: MatDialog) {}
+  photos = [{}, {}, {}];
 
   openDialog() {
     this.dialog.open(PhotoModalComponent, {
@@ -24,6 +27,11 @@ export class MapViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    axios.get(`/photos${window.location.search}`)
+      .then(({ data }) => {
+        this.photos = data.photos.data;
+        console.log(this.photos);
+      }).catch((err) => console.error(err));
   }
 
 }
