@@ -5,6 +5,7 @@ const User = require('./models/user.js');
 const Photos = require('./models/photo.js');
 
 const imageRequest = (accessToken) => {
+  console.log(accessToken);
   axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`)
   .then(({ data }) => {
     const hasLocation = data
