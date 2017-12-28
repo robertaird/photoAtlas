@@ -19,7 +19,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(routes);
 app.use(express.static(`${__dirname}/public`));
-
+app.use('/test-data', express.static(`${__dirname}/config/test-data`));
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

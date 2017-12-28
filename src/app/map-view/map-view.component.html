@@ -2,7 +2,7 @@
   <custom-marker position="Operation Spark"> -->
     <div class='offline-mode'>
       <div *ngFor="let photo of photos; index as i" class="marker-container">
-        <img class="photo-icon" (click)="openDialog()" src="../../assets/test-data.jpg">
+        <img class="photo-icon" (click)="openDialog()" [src]="photo.images.thumbnail.url">
         <div class="arrow-down"></div>
       </div>
     </div>
