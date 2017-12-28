@@ -10,21 +10,21 @@ import { NguiMapModule } from '@ngui/map';
 import { GOOGLE_MAPS_URI } from '../config/config';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { PhotoModalComponent } from './photo-modal/photo-modal.component';
 import { MapViewComponent } from './map-view/map-view.component';
+import { PhotoModalComponent } from './photo-modal/photo-modal.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
 import { NavBarLoginComponent } from './nav-bar-login/nav-bar-login.component';
+import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PhotoModalComponent,
     MapViewComponent,
+    PhotoModalComponent,
     WelcomeComponent,
+    NavBarLoginComponent,
     NavBarMainComponent,
-    NavBarLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +34,14 @@ import { NavBarLoginComponent } from './nav-bar-login/nav-bar-login.component';
     MatDialogModule,
     NguiMapModule.forRoot({ apiUrl: GOOGLE_MAPS_URI }),
     RouterModule.forRoot([
-      { path: '', component: LoginComponent },
-      { path: 'main', component: MapViewComponent /* children: [] */ },
+      { path: '', children: [
+        { path: '', component: LoginComponent, outlet: 'main' },
+        { path: '', component: NavBarLoginComponent, outlet: 'nav' },
+      ]},
+      { path: 'main', children: [
+        { path: '', component: NavBarMainComponent, outlet: 'nav' },
+        { path: '', component: MapViewComponent, outlet: 'main' /* children: [] */ },
+      ]}
     ])
   ],
   entryComponents: [MapViewComponent, PhotoModalComponent],

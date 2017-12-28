@@ -2,10 +2,11 @@
 <mat-toolbar id="navbar">
   <img width="200" alt="Angular Logo" src="../assets/logo.png">
    <div id="nav-content">
-     <app-nav-bar-main></app-nav-bar-main>
+     <!-- <app-nav-bar-main></app-nav-bar-main> -->
+    <router-outlet name="nav"></router-outlet>
    </div>
 </mat-toolbar>
 <div id="main" style="text-align:center">
   <!-- <app-login></app-login> -->
-  <router-outlet></router-outlet>
+  <router-outlet name="main"></router-outlet>
 </div>
