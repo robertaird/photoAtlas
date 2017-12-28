@@ -1,7 +1,7 @@
 <!-- <ngui-map center="0, 0" zoom="2" [styles]="config.mapStyle">
   <custom-marker position="Operation Spark"> -->
     <div class='offline-mode'>
-      <div (ng-repeat)="photos" class="marker-container">
+      <div *ngFor="let photo of photos; index as i" class="marker-container">
         <img class="photo-icon" (click)="openDialog()" src="../../assets/test-data.jpg">
         <div class="arrow-down"></div>
       </div>
