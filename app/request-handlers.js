@@ -7,7 +7,7 @@ const Photos = require('./models/photo.js');
 const imageRequest = (accessToken) => {
   console.log(accessToken);
   axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`)
-  .then(({ data }) => {
+  .then(({ data: { data } }) => {
     const hasLocation = data
       .filter(photo => !!photo.location)
       .map((photo) => {

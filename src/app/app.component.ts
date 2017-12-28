@@ -12,6 +12,7 @@ export class AppComponent {
 
   constructor(private _router: Router) {
     this.location = window.location.pathname;
+    console.log(_router.url);
     console.log(window.location);
   }
 
