@@ -22,7 +22,7 @@ export class MapViewComponent implements OnInit {
     console.log('selected?', photo);
     this.dialog.open(PhotoModalComponent, {
       data: {
-        photoUrl: photo.images.standard_resolution.url,
+        photoUrl: photo.images.standard_resolution,
       },
     });
   }
@@ -30,8 +30,7 @@ export class MapViewComponent implements OnInit {
   ngOnInit() {
     axios.get(`/photos${window.location.search}`)
       .then(({ data }) => {
-        this.photos = data.photos.data;
-        console.log(this.photos);
+        this.photos = data.photos;
       }).catch((err) => console.error(err));
   }
 

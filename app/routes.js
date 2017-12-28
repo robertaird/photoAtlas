@@ -47,7 +47,10 @@ app.get('/users', (req, res) => {
 app.get('/photos', (req, res) => {
   const { id } = req.query;
   if (id === 'demo') {
-    res.send({ photos: testData });
+    Photos.find({ user_id: 307648671 })
+      .then((found) => {
+        res.send({ photos: found });
+      });
   } else {
     Photos.find({ user_id: id })
       .then((found) => {
