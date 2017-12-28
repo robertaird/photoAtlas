@@ -16,12 +16,13 @@ export class MapViewComponent implements OnInit {
     mapStyle,
   };
 
-  photos = [{}, {}, {}];
+  photos = [];
 
-  openDialog() {
+  openDialog(photo) {
+    console.log('selected?', photo);
     this.dialog.open(PhotoModalComponent, {
       data: {
-        photoUrl: '../../assets/test-data.jpg',
+        photoUrl: photo.images.standard_resolution.url,
       },
     });
   }

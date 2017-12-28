@@ -34,14 +34,16 @@ import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
     MatDialogModule,
     NguiMapModule.forRoot({ apiUrl: GOOGLE_MAPS_URI }),
     RouterModule.forRoot([
-      { path: '', children: [
-        { path: '', component: LoginComponent, outlet: 'main' },
-        { path: '', component: NavBarLoginComponent, outlet: 'nav' },
-      ]},
-      { path: 'main', children: [
-        { path: '', component: NavBarMainComponent, outlet: 'nav' },
-        { path: '', component: MapViewComponent, outlet: 'main' /* children: [] */ },
-      ]}
+      { path: '', component: LoginComponent },
+      { path: 'main', component: MapViewComponent /* children: [] */ },
+      // { path: '', children: [
+      //   { path: '', component: LoginComponent, outlet: 'main' },
+      //   // { path: '', component: NavBarLoginComponent, outlet: 'nav' },
+      // ]},
+      // { path: 'main', children: [
+      //   // { path: '', component: NavBarMainComponent, outlet: 'nav' },
+      //   { path: '', component: MapViewComponent, outlet: 'main' /* children: [] */ },
+      // ]}
     ])
   ],
   entryComponents: [MapViewComponent, PhotoModalComponent],

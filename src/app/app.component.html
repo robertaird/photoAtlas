@@ -1,12 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar id="navbar">
   <img width="200" alt="Angular Logo" src="../assets/logo.png">
-   <div id="nav-content">
-     <!-- <app-nav-bar-main></app-nav-bar-main> -->
-    <router-outlet name="nav"></router-outlet>
-   </div>
+  <div id="nav-content">
+    <div *ngIf="location === '/'">
+      <app-nav-bar-login></app-nav-bar-login>
+    </div>
+    <div *ngIf="location !== '/'">
+      <app-nav-bar-main #main></app-nav-bar-main>
+    </div>
+     <!-- <router-outlet name="nav"></router-outlet> -->
+    </div>
 </mat-toolbar>
 <div id="main" style="text-align:center">
   <!-- <app-login></app-login> -->
-  <router-outlet name="main"></router-outlet>
+  <router-outlet></router-outlet>
 </div>
