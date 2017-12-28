@@ -14,6 +14,7 @@ import { PhotoModalComponent } from './photo-modal/photo-modal.component';
 import { MapViewComponent } from './map-view/map-view.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
+import { NavBarLoginComponent } from './nav-bar-login/nav-bar-login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
     PhotoModalComponent,
     MapViewComponent,
     WelcomeComponent,
-    NavBarMainComponent
+    NavBarMainComponent,
+    NavBarLoginComponent
   ],
   imports: [
     BrowserModule,

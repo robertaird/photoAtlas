@@ -9,6 +9,12 @@
   z-index: 1;
 }
 
+#nav-content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 app-nav-bar-main {
   position: relative;
   float: right;
