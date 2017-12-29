@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,15 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   public location = '';
+  public eventSub;
 
   constructor(private _router: Router) {
-    this.location = window.location.pathname;
-    console.log(_router.url);
-    console.log(window.location);
+    // this.location = window.location.pathname;
+    this.eventSub = _router.events.subscribe((event) => {
+      if (event instanceof RoutesRecognized) {
+        this.location = event.url;
+      }
+    });
   }
 
 }

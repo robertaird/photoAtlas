@@ -36,14 +36,6 @@ import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
     RouterModule.forRoot([
       { path: '', component: LoginComponent },
       { path: 'main', component: MapViewComponent /* children: [] */ },
-      // { path: '', children: [
-      //   { path: '', component: LoginComponent, outlet: 'main' },
-      //   // { path: '', component: NavBarLoginComponent, outlet: 'nav' },
-      // ]},
-      // { path: 'main', children: [
-      //   // { path: '', component: NavBarMainComponent, outlet: 'nav' },
-      //   { path: '', component: MapViewComponent, outlet: 'main' /* children: [] */ },
-      // ]}
     ])
   ],
   entryComponents: [MapViewComponent, PhotoModalComponent],
