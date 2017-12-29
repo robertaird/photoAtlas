@@ -26,6 +26,8 @@ export class MapViewComponent implements OnInit {
     this.dialog.open(PhotoModalComponent, {
       data: {
         photoUrl: photo.images.standard_resolution,
+        caption: photo.caption,
+        location: photo.location.name,
       },
     });
   }
