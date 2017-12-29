@@ -1,7 +1,9 @@
 <ngui-map center="0, 0" zoom="2" [styles]="config.mapStyle">
   <custom-marker
     *ngFor="let photo of photos; index as i"
-    [position]="[photo.location.latitude, photo.location.longitude]">
+    [position]="[photo.location.latitude, photo.location.longitude]"
+    [style.z-index]="photo.zIndex || 0"
+  >
     <!-- <div class='offline-mode'> -->
       <div class="marker-container">
         <img class="photo-icon" (click)="openDialog(photo)" [src]="photo.images.thumbnail">

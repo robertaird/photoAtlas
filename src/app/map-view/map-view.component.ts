@@ -10,19 +10,19 @@ import mapStyle from '../../config/map-style';
   styleUrls: ['./map-view.component.scss']
 })
 export class MapViewComponent implements OnInit {
-  Math: any;
-  constructor(public dialog: MatDialog) {
-    this.Math = Math;
-  }
+  constructor(public dialog: MatDialog) {}
 
   config = {
     mapStyle,
   };
 
   photos = [];
+  photoLatLng = [];
+  seenLatLng = {};
 
   openDialog(photo) {
-    console.log('selected?', photo);
+    console.log(photo);
+    photo.zIndex = photo.zIndex ? photo.zIndex - 1 : -1;
     this.dialog.open(PhotoModalComponent, {
       data: {
         photoUrl: photo.images.standard_resolution,
@@ -30,7 +30,26 @@ export class MapViewComponent implements OnInit {
     });
   }
 
+  test(event) {
+    console.log(event);
+  }
+  // onMapReady(map) {
+  //   console.log('map', map);
+  //   console.log('markers', map.markers);  // to get all markers as an array
+  // }
+  // onIdle(event) {
+  //   console.log('map', event.target);
+  // }
+  // onMarkerInit(marker) {
+  //   console.log('marker', marker);
+  // }
+
+  handleOverlap(lat, lng) {
+    return [lat, lng];
+  }
+
   ngOnInit() {
+    this.photoLatLng = [];
     axios.get(`/photos${window.location.search}`)
       .then(({ data }) => {
         this.photos = data.photos;
