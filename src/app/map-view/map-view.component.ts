@@ -10,7 +10,10 @@ import mapStyle from '../../config/map-style';
   styleUrls: ['./map-view.component.scss']
 })
 export class MapViewComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  Math: any;
+  constructor(public dialog: MatDialog) {
+    this.Math = Math;
+  }
 
   config = {
     mapStyle,
