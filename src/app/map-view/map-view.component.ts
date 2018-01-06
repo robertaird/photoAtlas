@@ -15,10 +15,7 @@ export class MapViewComponent implements OnInit {
   config = {
     mapStyle: mapStyle(),
   };
-
   photos = [];
-  photoLatLng = [];
-  seenLatLng = {};
 
   openDialog(photo) {
     photo.zIndex = photo.zIndex ? photo.zIndex - 1 : -1;
@@ -31,26 +28,8 @@ export class MapViewComponent implements OnInit {
     });
   }
 
-  test(event) {
-    console.log(event);
-  }
-  // onMapReady(map) {
-  //   console.log('map', map);
-  //   console.log('markers', map.markers);  // to get all markers as an array
-  // }
-  // onIdle(event) {
-  //   console.log('map', event.target);
-  // }
-  // onMarkerInit(marker) {
-  //   console.log('marker', marker);
-  // }
-
-  handleOverlap(lat, lng) {
-    return [lat, lng];
-  }
-
   ngOnInit() {
-    this.photoLatLng = [];
+    // this.photoLatLng = [];
     axios.get(`/photos${window.location.search}`)
       .then(({ data }) => {
         this.photos = data.photos;
