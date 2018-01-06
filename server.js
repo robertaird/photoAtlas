@@ -8,8 +8,7 @@ const routes = require('./app/routes.js');
 
 const app = express();
 
-const port = process.env.PORT || 8080;
-
+const {PORT: port = 8000, NODE_ENV} = process.env;
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
@@ -17,9 +16,21 @@ const port = process.env.PORT || 8080;
 //   next();
 // });
 app.use(express.json());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'dist')));
+}
+
 app.use(routes);
-app.use(express.static(`${__dirname}/public`));
 app.use('/test-data', express.static(`${__dirname}/config/test-data`));
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  });
+}
+
+// app.use(express.static(`${__dirname}/dist`));
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

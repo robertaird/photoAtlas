@@ -13,7 +13,7 @@ export class MapViewComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   config = {
-    mapStyle,
+    mapStyle: mapStyle(),
   };
 
   photos = [];
@@ -21,7 +21,6 @@ export class MapViewComponent implements OnInit {
   seenLatLng = {};
 
   openDialog(photo) {
-    console.log(photo);
     photo.zIndex = photo.zIndex ? photo.zIndex - 1 : -1;
     this.dialog.open(PhotoModalComponent, {
       data: {
