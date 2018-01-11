@@ -2,23 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoModalComponent } from '../photo-modal/photo-modal.component';
-import mapStyle from '../../config/map-style';
-import { VisibleLabelsService } from '../visible-labels.service';
+import { MapConfigService } from '../map-config.service';
 
 @Component({
   selector: 'app-map-view',
   templateUrl: './map-view.component.html',
   styleUrls: ['./map-view.component.scss'],
-  providers: [VisibleLabelsService]
+  providers: [MapConfigService]
 })
 export class MapViewComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
-    private _labels: VisibleLabelsService
+    public mapConfig: MapConfigService
   ) {}
 
   config = {
-    mapStyle: mapStyle(this._labels.visible),
+    mapStyle: this.mapConfig.style(false),
   };
   photos = [];
 

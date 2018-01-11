@@ -3,13 +3,26 @@
 </h1>
 <img width="600" alt="Angular Logo" src="../assets/logo.png">
 <br>
+<h4 id="subtitle">
+  A Photographic Story of Where You've Been.
+</h4>
+<p class="note">
+<br>
+  <small>
+    This app is currently in beta. Due to Instagram's API restrictions only Demo mode is available for public view.
+    <br>
+    If you'd like to see your own Instagram photos in action, please contact me.
+  </small>
+</p>
 <div class="button-row">
-  <button id="login-button" (click)="loginInstagram()" mat-raised-button color="accent">Login</button>
+  <button id="login-button" (click)="loginInstagram()" mat-raised-button>Login</button>
   <button
     id="demo-button"
     [routerLink]="['main']"
     [queryParams]="{id: 'demo'}"
-    mat-raised-button>
+    mat-raised-button
+    color="accent"
+  >
     Demo
   </button>
   <!-- <button id="demo-button" routerLink="/main" mat-raised-button>Demo</button> -->

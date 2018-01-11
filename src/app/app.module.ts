@@ -12,9 +12,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MapViewComponent } from './map-view/map-view.component';
 import { PhotoModalComponent } from './photo-modal/photo-modal.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { NavBarLoginComponent } from './nav-bar-login/nav-bar-login.component';
 import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
+import { VisibleLabelsDirective } from './visible-labels.directive';
+import { MapConfigPipe } from './map-config.pipe';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,9 @@ import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
     LoginComponent,
     MapViewComponent,
     PhotoModalComponent,
-    WelcomeComponent,
     NavBarLoginComponent,
     NavBarMainComponent,
+    VisibleLabelsDirective,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,7 @@ import { NavBarMainComponent } from './nav-bar-main/nav-bar-main.component';
     ])
   ],
   entryComponents: [MapViewComponent, PhotoModalComponent],
-  providers: [],
+  providers: [MapConfigPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
