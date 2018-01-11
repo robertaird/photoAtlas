@@ -3,7 +3,7 @@ const request = require('./request-handlers.js');
 const User = require('./models/user.js');
 const Photos = require('./models/photo.js');
 
-const testData = require('../config/test-data.js');
+// const testData = require('../config/test-data.js');
 
 const app = express();
 
