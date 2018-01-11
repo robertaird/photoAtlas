@@ -6,7 +6,7 @@ export class MapConfigService {
 
   constructor(private showLabels: MapConfigPipe) { }
 
-  public style = () => [
+  public style = (visible) => [
     {
       'featureType': 'administrative',
       'elementType': 'labels.text',

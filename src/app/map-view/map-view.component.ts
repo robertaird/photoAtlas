@@ -17,7 +17,7 @@ export class MapViewComponent implements OnInit {
   ) {}
 
   config = {
-    mapStyle: this.mapConfig.style(),
+    mapStyle: this.mapConfig.style(false),
   };
   photos = [];
 
