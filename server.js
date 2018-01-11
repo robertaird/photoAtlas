@@ -9,7 +9,7 @@ const routes = require('./app/routes.js');
 
 const app = express();
 
-const {PORT: port = 8000, NODE_ENV} = process.env;
+const {PORT: port = 8080, NODE_ENV} = process.env;
 
 app.use(express.json());
 
