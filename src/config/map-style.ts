@@ -1,10 +1,10 @@
-export default (visible = 'off') => [
+export default (visible) => [
   {
     'featureType': 'administrative',
     'elementType': 'labels.text',
     'stylers': [
       {
-        'visibility': visible
+        'visibility': visible ? 'on' : 'off'
       }
     ]
   },
@@ -13,7 +13,7 @@ export default (visible = 'off') => [
     'elementType': 'labels.text',
     'stylers': [
       {
-        'visibility': visible
+        'visibility': visible ? 'on' : 'off'
       }
     ]
   },
@@ -22,7 +22,7 @@ export default (visible = 'off') => [
     'elementType': 'labels.text',
     'stylers': [
       {
-        'visibility': visible
+        'visibility': visible ? 'on' : 'off'
       }
     ]
   },
@@ -76,7 +76,7 @@ export default (visible = 'off') => [
     'elementType': 'labels.text',
     'stylers': [
       {
-        'visibility': visible
+        'visibility': visible ? 'on' : 'off'
       }
     ]
   },
@@ -106,7 +106,7 @@ export default (visible = 'off') => [
     'elementType': 'labels',
     'stylers': [
       {
-        'visibility': visible
+        'visibility': visible ? 'on' : 'off'
       }
     ]
   },
