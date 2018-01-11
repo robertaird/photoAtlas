@@ -1,5 +1,6 @@
 @import '../../sass/variables';
 @import '../../sass/mixins';
+$break-small: 500px;
 
 .button-row {
   display: flex;
@@ -11,7 +12,23 @@
 #title {
   color: $primary;
   margin-top: 20vh;
+  // @media screen and (max-device-width: 500px) {
+  //   magin-top: 10vh;
+  // }
   margin-bottom: 0;
+}
+
+#logo-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  height: auto;
+}
+
+#logo {
+  width: 100%;
+  min-width: 350px;
+  height: 100%;
 }
 
 #subtitle {
@@ -23,4 +40,5 @@
   margin-left: auto;
   margin-right: auto;
   width: 47vw;
+  min-width: 300px;
 }

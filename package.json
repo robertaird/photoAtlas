@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "start:prod": "env NODE_ENV=production node server.js",
+    "start": "env NODE_ENV=production node server.js",
+    "start:dev": "ng serve --proxy-config proxy.conf.json",
     "server": "nodemon server.js",
     "build": "ng build",
     "test": "ng test",
