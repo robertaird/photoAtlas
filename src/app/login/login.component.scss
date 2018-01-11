@@ -5,11 +5,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 5vh;
+  padding-top: 2vh;
 }
 
 #title {
   color: $primary;
   margin-top: 20vh;
   margin-bottom: 0;
+}
+
+#subtitle {
+  color: $primary;
+  margin-bottom: 0;
+}
+
+.note {
+  margin-left: auto;
+  margin-right: auto;
+  width: 47vw;
 }
