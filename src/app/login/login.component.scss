@@ -13,12 +13,12 @@ $break-small: 500px;
   color: $primary;
   margin-top: 20vh;
   @media (max-width: 600px) {
-    margin-top: 10vh;
+    margin-top: 15vh;
   }
   // @media screen and (max-device-width: 500px) {
   //   magin-top: 10vh;
   // }
-  margin-bottom: 0;
+  margin-bottom: 1;
 }
 
 #logo-container {
@@ -37,6 +37,10 @@ $break-small: 500px;
 #subtitle {
   color: $primary;
   margin-bottom: 0;
+  @media (max-width: 600px) {
+    margin-bottom: 2;
+  }
+  margin-top: 1;
 }
 
 .note {
