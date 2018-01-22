@@ -63,7 +63,11 @@ export class MapViewComponent implements OnInit {
 
   centerMap() {
     if (this.boundsReady && this.mapReady) {
+      // this.map.panTo(this.bounds.getCenter());
       this.map.fitBounds(this.bounds);
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        this.map.setZoom(this.map.getZoom() + 1);
+      }
     }
   }
 }
