@@ -1,4 +1,9 @@
-<ngui-map center="0, 0" zoom="2" [styles]="config.mapStyle">
+<ngui-map
+  center="0, 0"
+  zoom="2"
+  [styles]="config.mapStyle"
+  (mapReady$)="onMapReady($event)"
+  >
   <custom-marker
     *ngFor="let photo of photos; index as i"
     [position]="[photo.location.latitude, photo.location.longitude]"
