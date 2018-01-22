@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import axios from 'axios';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoModalComponent } from '../photo-modal/photo-modal.component';
@@ -22,17 +22,15 @@ export class MapViewComponent implements OnInit {
     mapStyle: this.mapConfig.style(false),
   };
   photos: any[] = [];
+  boundsReady = false;
+  mapReady = false;
   bounds: any;
   map: any;
 
   onMapReady(map) {
-    if (!this.photos.length) {
-      setTimeout(() => {
-        map.fitBounds(this.bounds);
-      }, 800);
-    } else {
-      map.fitBounds(this.bounds);
-    }
+    this.map = map;
+    this.mapReady = true;
+    this.centerMap();
   }
 
   openDialog(photo) {
@@ -56,9 +54,16 @@ export class MapViewComponent implements OnInit {
           const position = new google.maps.LatLng(photo.location.latitude, photo.location.longitude);
           this.bounds.extend(position);
         });
+        this.boundsReady = true;
+        this.centerMap();
       }).catch((err) => {
         console.error(err);
       });
   }
 
+  centerMap() {
+    if (this.boundsReady && this.mapReady) {
+      this.map.fitBounds(this.bounds);
+    }
+  }
 }
