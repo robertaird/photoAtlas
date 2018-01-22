@@ -33,6 +33,7 @@ body, html {
   padding: 0;
   padding-top: 64px;
   @media (max-width: 600px) {
+    height: calc(100% - 56px);
     padding-top: 56px;
   }
   // margin-bottom: 64px;
@@ -40,4 +41,17 @@ body, html {
 /* everywhere else */
 * {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.cdk-overlay-pane {
+  @media (max-width: 600px) {
+    max-width: 90vw !important;
+  }
+}
+
+.mat-dialog-container {
+  @media (max-width: 600px) {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
 }
